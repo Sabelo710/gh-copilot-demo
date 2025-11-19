@@ -6,13 +6,13 @@ export function isValidGuid(guid: string): boolean {
     return guidRegex.test(guid);
 }
 
-export function isValidIPv6(ip: string): boolean {
+export function validateIPV6(ip: string): boolean {
     // Matches standard IPv6 format
     const ipv6Regex = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|(([0-9a-fA-F]{1,4}:){1,7}:)|(([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4})|(([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2})|(([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3})|(([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4})|(([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5})|([0-9a-fA-F]{1,4}:)((:[0-9a-fA-F]{1,4}){1,6})|(:)((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9])?[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9])?[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9])?[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9])?[0-9]))$/;
     return ipv6Regex.test(ip);
 }
 
-export function validateAndConvertFrenchDate(dateString: string): Date | null {
+export function validateDate(dateString: string): Date | null {
     // Regular expression to match French date format (DD/MM/YYYY)
     const frenchDateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
     const match = dateString.match(frenchDateRegex);
@@ -33,4 +33,13 @@ export function validateAndConvertFrenchDate(dateString: string): Date | null {
     }
 
     return date;
+}
+
+// validators.ts
+
+// Add your validation functions here
+
+export function validateAlbumId(id: string): boolean {
+    // Example validation: album id must be a non-empty string of digits
+    return typeof id === 'string' && /^\d+$/.test(id);
 }
