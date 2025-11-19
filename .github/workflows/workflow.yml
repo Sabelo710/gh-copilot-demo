@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - main
+      - training-lab
   # Optional: build on PRs too (remove if not needed)
   pull_request:
     branches:
       - main
+      - training-lab
 
 jobs:
   build:
